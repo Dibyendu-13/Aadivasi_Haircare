@@ -1,17 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css'; // Import slick carousel CSS
 import 'slick-carousel/slick/slick-theme.css'; // Import slick carousel theme CSS
 import './Slider.css'; // Custom styles for the slider
 
 // Import local images and video
-import image1 from '../../assets/Hairoil-1.jpg'; // Adjust path as necessary
+import image1 from '../../assets/Hairoil-1.jpg';
 import image2 from '../../assets/Hairoil-2.jpg';
 import image3 from '../../assets/Hairoil-3.jpg';
-import video1 from '../../assets/Aadivasi_Community_Latest_Video.mp4'; // Adjust path as necessary
-
-// Import VideoPlayer component
-import VideoPlayer from '../VideoPlayer/VideoPlayer';
+import video1 from '../../assets/Aadivasi_Community_Latest_Video.mp4';
 
 // Array of images and video, with video first
 const media = [
@@ -37,7 +34,7 @@ const NextArrow = (props) => (
 const SliderComponent = () => {
     const sliderRef = useRef(null); // Reference to the Slider component
     const videoRefs = useRef([]); // Array to hold references to video elements
-    
+    const [loadingIndex, setLoadingIndex] = useState(null); // State to track loading video
 
     // Slider settings with autoplay and custom arrows
     const settings = {
@@ -51,29 +48,36 @@ const SliderComponent = () => {
         prevArrow: <PrevArrow />, // Use custom PrevArrow component
         nextArrow: <NextArrow />, // Use custom NextArrow component
         afterChange: (current) => {
-           
             // Pause video when changing slides
             videoRefs.current.forEach((video, index) => {
                 if (video && index !== current) {
-                    video.getInternalPlayer().pause();
+                    video.pause();
                 }
             });
         }
     };
 
-    const handleMouseEnter = (index) => {
+    const handleCanPlay = (index) => {
+        setLoadingIndex(null); // Video is ready to play, hide loading screen
+    };
+
+    const handlePlayClick = (index) => {
         const video = videoRefs.current[index];
         if (video) {
-            video.getInternalPlayer().play();
-            video.getInternalPlayer().muted = false; // Unmute on hover
+            video.play();
+            video.muted = false; // Unmute on play
         }
+    };
+
+    const handleMouseEnter = (index) => {
+        // No action needed here, playback handled by play button click
     };
 
     const handleMouseLeave = (index) => {
         const video = videoRefs.current[index];
         if (video) {
-            video.getInternalPlayer().pause();
-            video.getInternalPlayer().muted = true; // Mute when not hovered
+            video.pause();
+            video.muted = true; // Mute when not hovered
         }
     };
 
@@ -83,17 +87,25 @@ const SliderComponent = () => {
                 {media.map((item, index) => (
                     <div key={index}>
                         {item.type === 'image' ? (
-                            <img src={item.src} alt={`Slide ${index + 1}`} />
+                            <img src={item.src} alt={`Slide ${index + 1}`} className="slider-media" />
                         ) : (
-                            <VideoPlayer
-                                src={item.src}
-                                controls
-                                width="100%"
-                                height="auto"
-                                ref={(el) => (videoRefs.current[index] = el)}
-                                onMouseEnter={() => handleMouseEnter(index)}
-                                onMouseLeave={() => handleMouseLeave(index)}
-                            />
+                            <div className="video-container">
+                                <video
+                                    src={item.src}
+                                    controls
+                                    width="100%"
+                                    height="auto"
+                                    ref={(el) => (videoRefs.current[index] = el)}
+                                    onCanPlay={() => handleCanPlay(index)}
+                                    onMouseEnter={() => handleMouseEnter(index)}
+                                    onMouseLeave={() => handleMouseLeave(index)}
+                                />
+                                {loadingIndex === index && (
+                                    <div className="loading-overlay">
+                                        <div className="loading-spinner"></div>
+                                    </div>
+                                )}
+                            </div>
                         )}
                     </div>
                 ))}
