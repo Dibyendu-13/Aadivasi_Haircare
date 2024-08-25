@@ -8,7 +8,7 @@ import './Slider.css'; // Custom styles for the slider
 import image1 from '../../assets/Hairoil-1.jpg'; // Adjust path as necessary
 import image2 from '../../assets/Hairoil-2.jpg';
 import image3 from '../../assets/Hairoil-3.jpg';
-import video1 from '../../assets/MediaCoverage.mp4'; // Adjust path as necessary
+import video1 from '../../assets/Aadivasi_Community_Latest_Video.mp4'; // Adjust path as necessary
 
 // Import VideoPlayer component
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
