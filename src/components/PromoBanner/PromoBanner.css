@@ -1,0 +1,15 @@
+
+.promo-banner {
+    
+    background-color: #39ff14; /* Neon green background */
+
+    color: black; /* Black text color */
+    text-align: center;
+    padding: 0 5px; /* Adjust padding for vertical space */
+    width: 100vw; /* Full viewport width */
+    position: fixed; /* Fixed position to stick at the top */
+    top: 0; /* Align at the top of the viewport */
+    left: 0; /* Align at the left edge of the viewport */
+    z-index: 1000; /* Ensure it appears above other elements */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}

@@ -1,38 +1,133 @@
-.App {
+/* Promo banner styling */
+.promo-banner {
+  background-color: #f8f9fa;
+  padding: 10px;
   text-align: center;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header styling */
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Header content styling */
+.header-content {
   display: flex;
-  flex-direction: column;
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Space items horizontally */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header search styling */
+.header-search {
+  flex: 1; /* Allows the search to take available space on the left */
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Header title styling */
+.header-title {
+  font-size: 24px;
+  font-weight: bold;
+  flex: 1; /* Allows the title to take available space in the center */
+  text-align: center; /* Center the title */
+}
+
+/* Header cart styling */
+.header-cart {
+  flex: 1; /* Allows the cart to take available space on the right */
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Main content styling */
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Footer styling */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 10px 20px;
+  background-color: #333;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Catalog grid styling */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Media Queries for Responsive Design */
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column; /* Stack header content vertically on mobile */
   }
-  to {
-    transform: rotate(360deg);
+
+  .header-title {
+    font-size: 22px; /* Adjust font size for mobile */
+    margin: 10px 0; /* Add margin for spacing */
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+
+  .promo-banner {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar a {
+    padding: 10px 0;
+  }
+
+  .catalog-grid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header-content {
+    flex-direction: row;
+  }
+
+  .header-title {
+    font-size: 26px;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+  .header-title {
+    font-size: 28px;
   }
 }

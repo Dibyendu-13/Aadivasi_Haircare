@@ -1,0 +1,200 @@
+/* Product Detail Container */
+.product-detail {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    align-items: center; /* Center items vertically */
+}
+
+/* Product Image Section */
+.product-image {
+    flex: 1;
+    max-width: 600px;
+ 
+    display: flex;
+    align-items: center; /* Center image vertically in its container */
+    justify-content: center; /* Center image horizontally in its container */
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Product Info Section */
+.product-info {
+    flex: 2;
+}
+
+/* Product Name Styling */
+.product-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+/* Product Price Styling */
+.product-price {
+    font-size: 20px;
+    color: #333;
+    margin: 0 0 20px;
+}
+
+.price-old {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 10px;
+}
+
+.price-new {
+    color: #e60023;
+    font-weight: bold;
+}
+
+/* Product Variants Styling */
+.product-variants {
+    margin-bottom: 20px;
+}
+
+.product-variants label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.product-variants select {
+    width: 100%;
+    max-width: 400px; /* Increased width for better consistency */
+    padding: 10px; /* Increased padding for larger select box */
+    font-size: 16px; /* Larger font size for readability */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: linear-gradient(145deg, #f9f9f9, #e0e0e0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+    appearance: none;
+    cursor: pointer;
+}
+
+.product-variants select:focus {
+    border-color: #007bff;
+}
+
+.product-variants select:hover {
+    border-color: #0056b3;
+}
+
+/* Quantity Input Section */
+.product-quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.quantity-input {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Increased gap for better spacing */
+    margin-top: 5px;
+}
+
+.quantity-btn {
+    width: 40px; /* Increased button width */
+    height: 40px; /* Increased button height */
+    background: linear-gradient(145deg, #333, #000);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; /* Increased font size for better visibility */
+    transition: background 0.3s, box-shadow 0.3s;
+    margin: 0 5px; /* Increased margin for spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.quantity-btn:hover {
+    background: linear-gradient(145deg, #222, #000);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.quantity-input input {
+    width: 80px; /* Increased width for better readability */
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px; /* Increased padding for comfort */
+    font-size: 18px; /* Larger font size for better readability */
+}
+
+/* Product Action Buttons */
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Increased gap for better spacing */
+    margin-top: 20px;
+}
+
+.btn {
+    width: 120%;
+    max-width: 400px; /* Increased button width for better consistency */
+    padding: 15px 0;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    text-align: center;
+    text-decoration: none;
+}
+
+.add-to-cart {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+}
+
+.add-to-cart:hover {
+    background-color: #f0f0f0;
+    border-color: #000;
+}
+
+.buy-now {
+    background-color: #000;
+    color: #fff;
+}
+
+.buy-now:hover {
+    background-color: #333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .product-detail {
+        flex-direction: column;
+    }
+
+    .product-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+        max-width: 100%;
+    }
+
+    .product-info {
+        flex: 1;
+    }
+}

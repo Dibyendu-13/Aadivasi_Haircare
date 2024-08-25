@@ -1,0 +1,62 @@
+/* Search container styling */
+.search-container {
+    position: relative; /* Position relative for proper positioning of child elements */
+}
+
+/* Search icon styling */
+.search-icon {
+    background: none; /* Transparent background */
+    border: none; /* Remove border */
+    font-size: 24px; /* Icon size */
+    cursor: pointer; /* Pointer cursor */
+    outline: none; /* Remove outline */
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+/* Search icon hover effect */
+.search-icon:hover {
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+/* Backdrop styling */
+.search-backdrop {
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0; /* Align to the top of the viewport */
+    left: 0; /* Align to the left edge */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Blur effect */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/* Search input container styling */
+.search-input-container {
+    position: fixed; /* Fixed position to place it below the navbar */
+    top: 10px; /* Adjust based on the height of your navbar */
+    left: 49%; /* Center horizontally */
+    transform: translateX(-50%); /* Center alignment */
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Center the input horizontally */
+    align-items: center; /* Center the input vertically */
+    z-index: 1001; /* Ensure it appears above other elements */
+}
+
+/* Search input styling */
+.search-input {
+    width: 100%; /* Adjust width as needed */
+    max-width: 800px; /* Maximum width for the input */
+    padding: 15px; /* Padding for input */
+    border: 1px solid #ddd; /* Border for input */
+    border-radius: 24px; /* Rounded corners for a modern look */
+    font-size: 16px; /* Font size */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
+}
+
+/* Focused search input styling */
+.search-input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25); /* Add shadow on focus */
+    outline: none; /* Remove default outline */
+}

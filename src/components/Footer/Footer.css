@@ -1,0 +1,52 @@
+/* Ensure the body and html elements take up the full height of the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content area */
+.main-content {
+    flex: 1; /* This makes the main content area take up the remaining space */
+    min-height: calc(100vh - 60px); /* Adjust based on the footer height */
+}
+
+/* Footer styling */
+.footer {
+    background-color: #333; /* Dark background color for the footer */
+    color: #fff; /* White text color */
+    padding: 20px 0; /* Vertical padding */
+    text-align: center; /* Center-align text */
+    width: 100%; /* Make the footer span the full width of its container */
+    /* Position footer at the bottom if there's not enough content to fill the page */
+}
+
+/* Footer container for content alignment */
+.footer-container {
+    max-width: 1200px; /* Maximum width for the container */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 0 20px; /* Horizontal padding */
+}
+
+/* Footer information section */
+.footer-info {
+    margin-bottom: 20px; /* Space below the footer info section */
+}
+
+/* Paragraph styling inside the footer info */
+.footer-info p {
+    margin: 5px 0; /* Vertical margin for paragraphs */
+}
+
+/* Footer links */
+.footer-info a {
+    color: #fff; /* White text color for links */
+    text-decoration: none; /* Remove underline from links */
+    margin: 0 10px; /* Horizontal margin between links */
+}
+
+/* Footer links hover state */
+.footer-info a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

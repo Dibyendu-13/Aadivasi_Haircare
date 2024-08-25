@@ -1,0 +1,26 @@
+/* src/pages/ThankYouPage.css */
+.thank-you-container {
+    text-align: center;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.thank-you-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.thank-you-container p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.thank-you-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.thank-you-container a:hover {
+    text-decoration: underline;
+}

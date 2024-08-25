@@ -1,0 +1,236 @@
+/* General Styles */
+.cart-component {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.cart-component h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #333;
+}
+
+.cart-component-empty {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.cart-component-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-component-table th,
+.cart-component-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.cart-component-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.cart-component-item {
+    vertical-align: middle;
+    position: relative; /* Allows for absolute positioning of child elements */
+}
+
+.cart-component-item-details {
+    display: flex;
+    flex-direction: column; /* Stack image and info vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text in this column */
+    padding: 10px 0;
+}
+
+.cart-component-item-image {
+    max-width: 100%;
+    height: auto;
+    width: 70px;
+    margin-bottom: 10px; /* Space below image */
+    border-radius: 5px;
+    display: block;
+}
+
+.cart-component-item-info {
+    text-align: center; /* Center text in this column */
+    margin-bottom: 10px; /* Space below info */
+    position: relative; /* Allows positioning of the delete icon */
+}
+
+.cart-component-delete-icon {
+    font-size: 20px;
+    color: #dc3545;
+    cursor: pointer;
+    position: absolute; /* Absolute positioning within the product cell */
+    left: 40%; /* Align to the right side of the product info */
+    top: 50%; /* Align to the top of the product info */
+}
+
+.cart-component-delete-icon:hover {
+    color: #c82333;
+}
+
+.cart-component-item-quantity {
+    text-align: center;
+    position: relative; /* Allows for positioning of the quantity buttons */
+}
+
+.quantity-card {
+    display: flex;
+    flex-direction: row; /* Default to horizontal layout */
+    align-items: center;
+    justify-content: center; /* Center items horizontally */
+}
+
+.quantity-btn {
+    background: linear-gradient(145deg, #333, #000);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin: 0 5px; /* Space between buttons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.quantity-btn:hover {
+    background: linear-gradient(145deg, #222, #000);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.quantity-display {
+    width: 40px;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 10px; /* Space around quantity display */
+}
+
+.cart-component-item-total {
+    text-align: center;
+}
+
+.cart-component-total-label {
+    text-align: right;
+    font-weight: bold;
+}
+
+.cart-component-total-amount {
+    text-align: right;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.btn.checkout-btn {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2em;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn.checkout-btn:hover {
+    background-color: #218838;
+}
+
+.btn.checkout-btn:active {
+    transform: scale(0.98);
+}
+
+.btn.checkout-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .cart-component-item-details {
+        flex-direction: row; /* Row layout for tablets */
+        align-items: flex-start; /* Align items at the start */
+        padding: 10px 0;
+    }
+
+    .cart-component-item-image {
+        width: 100px; /* Adjust size of image for tablets */
+    }
+
+    .cart-component-delete-icon {
+        position: static; /* Reset positioning */
+        margin-top: 10px; /* Space above icon */
+        font-size: 18px; /* Adjust icon size for tablets */
+    }
+
+    .quantity-btn {
+        padding: 7px 12px; /* Slightly larger buttons for tablets */
+    }
+
+    .quantity-display {
+        font-size: 1.1em; /* Adjust quantity display size for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .cart-component-item-details {
+        flex-direction: column; /* Stack image and info vertically on smaller screens */
+        align-items: center;
+        text-align: center; /* Center text */
+    }
+
+    .cart-component-item-image {
+        width: 60px; /* Adjust size of image */
+    }
+
+    .cart-component-delete-icon {
+        position: static; /* Reset positioning */
+        margin-top: 10px; /* Space above icon */
+    }
+}
+
+@media (max-width: 576px) {
+    .cart-component-item-image {
+        width: 50px; /* Further adjust image size */
+    }
+
+    .quantity-card {
+        flex-direction: column; /* Stack quantity buttons vertically */
+        width: 100%; /* Full width for quantity card */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .quantity-btn {
+        margin: 5px 0; /* Space between buttons */
+    }
+
+    .quantity-display {
+        margin: 5px 0; /* Space around quantity display */
+    }
+
+    .cart-component-item-info {
+        font-size: 0.9em; /* Adjust font size */
+        margin-bottom: 5px; /* Space below info */
+    }
+
+    .btn.checkout-btn {
+        width: 100%;
+        font-size: 1em;
+        padding: 12px;
+    }
+}

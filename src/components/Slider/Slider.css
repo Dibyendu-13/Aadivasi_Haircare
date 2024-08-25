@@ -1,0 +1,100 @@
+/* SliderComponent.css */
+.slider-container {
+    position: relative; /* Allows for positioning of arrows */
+    width: 80%; /* Adjust width as needed */
+    max-width: 1200px; /* Optional: Set a maximum width for larger screens */
+    margin: 0 auto; /* Center the slider container */
+}
+
+/* Center content inside slides */
+.slider-container .slick-slide {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+}
+
+/* Image styling */
+.slider-container img {
+    max-width: 100%; /* Ensure the image fits within the container */
+    max-height: 600px; /* Adjust height to allow larger images */
+    width: auto; /* Adjust width automatically to maintain aspect ratio */
+    height: auto; /* Adjust height automatically to maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the container */
+    border-radius: 8px; /* Optional: for rounded corners */
+}
+
+/* Video styling */
+.slider-container video {
+    max-width: 100%; /* Ensure the video fits within the container */
+    max-height: 600px; /* Adjust height to fit within the slider */
+    width: auto; /* Adjust width automatically to maintain aspect ratio */
+    height: auto; /* Adjust height automatically to maintain aspect ratio */
+    border-radius: 8px; /* Optional: for rounded corners */
+}
+
+/* Custom arrow styles */
+.slick-arrow {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border: none;
+    color: white; /* Arrow color */
+    cursor: pointer;
+    font-size: 24px; /* Adjust arrow size */
+    line-height: 1;
+    position: absolute;
+    z-index: 1000;
+    border-radius: 50%;
+    width: 40px; /* Adjust size */
+    height: 40px; /* Adjust size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for background color and arrow color */
+}
+
+/* Hide default arrows */
+.slick-prev:before,
+.slick-next:before {
+    display: none; /* Hide default arrow icons */
+}
+
+/* Position arrows */
+.slick-prev {
+    left: 10px; /* Position left arrow closer to the image */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slick-next {
+    right: 10px; /* Position right arrow closer to the image */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* No hover effect on arrows */
+.slick-arrow:hover,
+.slick-arrow:focus,
+.slick-arrow:active {
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker background on hover */
+    color: white; /* Maintain arrow color */
+    outline: none; /* Remove default outline */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .slider-container {
+        width: 95%; /* Adjust width for smaller screens */
+    }
+
+    .slick-arrow {
+        font-size: 20px; /* Smaller arrow size for mobile */
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-container img,
+    .slider-container video {
+        max-height: 400px; /* Adjust height for very small screens */
+    }
+}

@@ -1,0 +1,98 @@
+/* Overall container style */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Form container style */
+.contact-form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+/* Heading style */
+.contact-form h1 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+/* Form group style */
+.form-group {
+    margin-bottom: 16px;
+}
+
+/* Label style */
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Input and textarea styles */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Placeholder styles */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #888;
+}
+
+/* Button style */
+.send-button {
+    background-color: #000;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 180px;
+    margin: 20px auto 0 auto;
+    display: block;
+}
+
+/* Button hover effect */
+.send-button:hover {
+    background-color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 20px;
+    }
+
+    .contact-form h1 {
+        font-size: 24px;
+    }
+
+    .send-button {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}

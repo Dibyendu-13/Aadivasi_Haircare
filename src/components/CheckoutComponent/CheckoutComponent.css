@@ -1,0 +1,179 @@
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+.checkout-component {
+    max-width: 700px;
+    width: 100%;
+    margin: 20px 0;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+
+.checkout-component h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    font-weight: 600;
+}
+
+.checkout-component form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.checkout-component fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.checkout-component legend {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #555;
+    font-weight: bold;
+}
+
+.checkout-component label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.checkout-component input,
+.checkout-component select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.checkout-component input:focus,
+.checkout-component select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+}
+
+.checkout-component .btn {
+    width: 100%; /* Make the button take full width of its container */
+    max-width: 300px; /* Optional: Set a max width for the button */
+    padding: 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px; /* Space above the button */
+    margin-left: auto; /* Center the button horizontally */
+    margin-right: auto; /* Center the button horizontally */
+    display: block; /* Ensure the button is displayed as a block-level element */
+}
+
+
+.checkout-component .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.03);
+}
+
+.checkout-component .btn:active {
+    transform: scale(0.97);
+}
+
+.checkout-component .btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.checkout-component .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checkout-component .checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #555;
+}
+
+.checkout-component .checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkout-component .checkbox-group .checkbox-description {
+    font-size: 14px;
+    color: #666;
+}
+
+.cart-summary {
+    max-width: 700px;
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    font-weight: 600;
+}
+
+.cart-summary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.cart-summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    color: #555;
+}
+
+.cart-summary-item:last-child {
+    border-bottom: none;
+}
+
+.cart-summary-total {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    color: #007bff;
+}
