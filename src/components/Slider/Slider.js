@@ -61,13 +61,7 @@ const SliderComponent = () => {
         setLoadingIndex(null); // Video is ready to play, hide loading screen
     };
 
-    const handlePlayClick = (index) => {
-        const video = videoRefs.current[index];
-        if (video) {
-            video.play();
-            video.muted = false; // Unmute on play
-        }
-    };
+  
 
     const handleMouseEnter = (index) => {
         // No action needed here, playback handled by play button click
