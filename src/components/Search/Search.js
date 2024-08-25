@@ -16,7 +16,7 @@ const Search = ({ setSearchQuery }) => {
         setSearchQuery(query); // Update the search query in the parent component
         navigate('/catalog'); // Navigate to the catalog page
         setExpanded(false); // Close the search input box
-        console.log('Searching for:', query);
+  
     };
 
     const handleClickOutside = (event) => {

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css'; // Import slick carousel CSS
 import 'slick-carousel/slick/slick-theme.css'; // Import slick carousel theme CSS
@@ -37,7 +37,7 @@ const NextArrow = (props) => (
 const SliderComponent = () => {
     const sliderRef = useRef(null); // Reference to the Slider component
     const videoRefs = useRef([]); // Array to hold references to video elements
-    const [currentSlide, setCurrentSlide] = useState(0); // State to track the current slide
+    
 
     // Slider settings with autoplay and custom arrows
     const settings = {
@@ -51,7 +51,7 @@ const SliderComponent = () => {
         prevArrow: <PrevArrow />, // Use custom PrevArrow component
         nextArrow: <NextArrow />, // Use custom NextArrow component
         afterChange: (current) => {
-            setCurrentSlide(current); // Update the current slide index
+           
             // Pause video when changing slides
             videoRefs.current.forEach((video, index) => {
                 if (video && index !== current) {

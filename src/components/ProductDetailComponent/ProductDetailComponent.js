@@ -16,8 +16,7 @@ const ProductDetailComponent = ({ product }) => {
 
     // Determine index based on selectedVariant
     const variantIndex = product.variants.indexOf(selectedVariant);
-    console.log("variant index:",variantIndex)
-    console.log(product);
+   
 
     const incrementQuantity = () => setQuantity(prevQuantity => prevQuantity + 1);
     const decrementQuantity = () => {
@@ -31,7 +30,6 @@ const ProductDetailComponent = ({ product }) => {
     const handleAddToCart = () => {
         addToCart({ ...product, quantity, selectedVariant });
 
-        console.log("Add To Cart");
         toast.success("Item Added To Cart Successfully"); // Use toast directly
  
     };
@@ -39,7 +37,7 @@ const ProductDetailComponent = ({ product }) => {
     // Ensure variantIndex is within bounds of the arrays
     const itemPrice = variantIndex !== -1 ? product.price[variantIndex] : 0;
     const itemOldPrice = variantIndex !== -1 ? product.oldPrice[variantIndex] : 0;
-    const itemSubtotal = itemPrice * quantity;
+  
 
     return (
         <div className="product-detail">

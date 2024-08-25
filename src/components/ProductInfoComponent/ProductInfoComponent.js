@@ -1,6 +1,5 @@
 import React from 'react';
 import './ProductInfoComponent.css';
-import productImage from '../../assets/Product-Image-1.jpg';
 import ProductDetailComponent from '../ProductDetailComponent/ProductDetailComponent';
 
 const ProductInfoComponent = () => {
