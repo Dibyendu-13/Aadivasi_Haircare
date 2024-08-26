@@ -4,6 +4,7 @@
     width: 80%; /* Adjust width as needed */
     max-width: 1200px; /* Optional: Set a maximum width for larger screens */
     margin: 0 auto; /* Center the slider container */
+    padding: 0; /* Remove padding */
 }
 
 /* Center content inside slides */
@@ -76,6 +77,7 @@
 @media (max-width: 768px) {
     .slider-container {
         width: 95%; /* Adjust width for smaller screens */
+        padding: 0; /* Remove padding to prevent extra space */
     }
 
     .slick-arrow {
@@ -88,10 +90,12 @@
 @media (max-width: 480px) {
     .slider-container {
         width: 100%; /* Ensure full width on very small screens */
+        padding: 0; /* Remove padding to prevent extra space */
     }
 
     .slider-container .slick-slide {
-        height: 100vh; /* Ensure the slide takes up the full height of the viewport on mobile */
+        height: auto; /* Remove fixed height to adjust to content */
+        margin: 0; /* Remove margin to prevent extra space */
     }
 
     .slider-container img,
