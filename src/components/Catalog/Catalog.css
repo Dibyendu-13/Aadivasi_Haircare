@@ -2,6 +2,8 @@
 .catalog-container {
     padding: 20px;
     background-color: #f9f9f9; /* Light background color for the catalog */
+    max-width: 1200px; /* Ensure the container doesn’t stretch too wide */
+    margin: 0 auto; /* Center the container horizontally */
 }
 
 /* Filter Sections */
@@ -118,12 +120,14 @@
     display: flex;
     flex-direction: column; /* Arrange image and text in a column */
     align-items: center; /* Center-align content */
-    padding: 15px; /* Adjust padding */
+   
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     background-color: #fff; /* White background for product cards */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    width: 100%;
+    max-width: 300px; /* Limit max width for better mobile view */
 }
 
 /* Hover Effect for Product Card */
@@ -135,16 +139,17 @@
 /* Product Image */
 .product-image {
     width: 100%;
-    height: 250px; /* Reduce height of the image */
+    height: auto;
+    max-height: 200px; /* Reduce height for mobile */
     object-fit: cover;
     margin-bottom: 10px; /* Adjust space between image and text */
 }
 
-/* Product Info */
+/* Product Info Section */
 .product-info {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center-align text */
+    align-items: center;
     text-align: center; /* Center-align text inside the info section */
 }
 
@@ -251,5 +256,46 @@ button:disabled {
 /* Button within Filter Sections */
 .filter-section button {
     width: 100%;
-    margin-top: 10px; /* Margin for better spacing */
+    margin-top: 10px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablets and Small Desktops */
+@media (max-width: 768px) {
+    .catalog-filters {
+        flex-direction: column;
+    }
+
+    .filter-section {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .catalog-products {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+    .filter-section {
+        min-width: 100%; /* Ensure filter sections take full width on mobile */
+    }
+
+    .product-card {
+        max-width: 100%; /* Remove max-width on mobile */
+    }
+
+    .catalog-products {
+        grid-template-columns: 1fr; /* Single column layout for mobile */
+    }
+
+    .price-range {
+        flex-direction: column; /* Stack price range inputs vertically */
+    }
+
+    .price-range input {
+        min-width: 100%; /* Ensure inputs take full width */
+    }
 }

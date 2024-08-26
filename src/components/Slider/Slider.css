@@ -1,4 +1,4 @@
-/* SliderComponent.css */
+/* General Slider Container Styling */
 .slider-container {
     position: relative; /* Allows for positioning of arrows */
     width: 80%; /* Adjust width as needed */
@@ -9,26 +9,19 @@
 /* Center content inside slides */
 .slider-container .slick-slide {
     display: flex;
-    justify-content: center; /* Center the image horizontally */
-    align-items: center; /* Center the image vertically */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    height: 100vh; /* Make sure the slide container takes up the full height of the viewport */
 }
 
-/* Image styling */
-.slider-container img {
-    max-width: 100%; /* Ensure the image fits within the container */
-    max-height: 600px; /* Adjust height to allow larger images */
-    width: auto; /* Adjust width automatically to maintain aspect ratio */
-    height: auto; /* Adjust height automatically to maintain aspect ratio */
-    object-fit: cover; /* Ensure the image covers the container */
-    border-radius: 8px; /* Optional: for rounded corners */
-}
-
-/* Video styling */
+/* Image and Video styling */
+.slider-container img,
 .slider-container video {
-    max-width: 100%; /* Ensure the video fits within the container */
-    max-height: 600px; /* Adjust height to fit within the slider */
-    width: auto; /* Adjust width automatically to maintain aspect ratio */
-    height: auto; /* Adjust height automatically to maintain aspect ratio */
+    max-width: 100%; /* Ensure the image/video fits within the container */
+    max-height: 100%; /* Adjust height to fit within the container */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image/video is fully visible within the container */
     border-radius: 8px; /* Optional: for rounded corners */
 }
 
@@ -93,8 +86,16 @@
 }
 
 @media (max-width: 480px) {
+    .slider-container {
+        width: 100%; /* Ensure full width on very small screens */
+    }
+
+    .slider-container .slick-slide {
+        height: 100vh; /* Ensure the slide takes up the full height of the viewport on mobile */
+    }
+
     .slider-container img,
     .slider-container video {
-        max-height: 400px; /* Adjust height for very small screens */
+        max-height: 70vh; /* Adjust max height for very small screens */
     }
 }
