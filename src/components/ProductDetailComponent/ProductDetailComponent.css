@@ -186,13 +186,15 @@
 /* Responsive Adjustments */
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
+@media (max-width: 992px) {
     .product-detail {
         flex-direction: row;
     }
 
     .product-image {
-        max-width: 50%; /* Adjusted for larger screens */
+        max-width: 25%; /* Adjusted for larger screens */
+        padding-top: 20px;
+       
     }
 
     .product-info {
@@ -207,10 +209,7 @@
         flex-direction: column;
     }
 
-    .product-image {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
+ 
 
     .product-info {
         flex: 1;
@@ -244,10 +243,7 @@
         margin: 10px;
     }
 
-    .product-image {
-        max-width: 100%;
-        margin-bottom: 15px;
-    }
+  
 
     .product-info {
         padding: 5px;
@@ -305,3 +301,4 @@
         font-size: 12px;
     }
 }
+
