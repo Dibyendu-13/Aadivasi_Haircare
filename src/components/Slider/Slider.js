@@ -34,13 +34,12 @@ const NextArrow = (props) => (
 const SliderComponent = () => {
     const sliderRef = useRef(null); // Reference to the Slider component
     const videoRefs = useRef([]); // Array to hold references to video elements
-    const [loadingIndex, setLoadingIndex] = useState(null); // State to track loading video
 
     // Slider settings with autoplay and custom arrows
     const settings = {
         dots: false, // Disable dots
         infinite: true,
-        speed: 500,
+        speed: 300,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true, // Enable autoplay
@@ -52,24 +51,25 @@ const SliderComponent = () => {
             videoRefs.current.forEach((video, index) => {
                 if (video && index !== current) {
                     video.pause();
+                    video.muted = true; // Ensure videos are muted when not active
                 }
             });
         }
     };
 
-    const handleCanPlay = (index) => {
-        setLoadingIndex(null); // Video is ready to play, hide loading screen
-    };
-
     const handleMouseEnter = (index) => {
-        // No action needed here, playback handled by play button click
+        const video = videoRefs.current[index];
+        if (video) {
+            video.play(); // Play the video when hovered
+            video.muted = false; // Unmute the video when hovered
+        }
     };
 
     const handleMouseLeave = (index) => {
         const video = videoRefs.current[index];
         if (video) {
-            video.pause();
-            video.muted = true; // Mute when not hovered
+            video.pause(); // Pause the video when not hovered
+            video.muted = true; // Mute the video when not hovered
         }
     };
 
@@ -88,15 +88,10 @@ const SliderComponent = () => {
                                     width="100%"
                                     height="auto"
                                     ref={(el) => (videoRefs.current[index] = el)}
-                                    onCanPlay={() => handleCanPlay(index)}
                                     onMouseEnter={() => handleMouseEnter(index)}
                                     onMouseLeave={() => handleMouseLeave(index)}
                                 />
-                                {loadingIndex === index && (
-                                    <div className="loading-overlay">
-                                        <div className="loading-spinner"></div>
-                                    </div>
-                                )}
+                               
                             </div>
                         )}
                     </div>
