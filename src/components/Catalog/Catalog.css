@@ -1,309 +1,181 @@
-/* Global Styles */
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Catalog Container */
-.catalog-container {
+/* Container for the entire catalog */
+.product-catalog-container {
     padding: 20px;
-    background-color: #f9f9f9;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Filter Sections */
-.catalog-filters {
+/* Main heading */
+.product-catalog-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Filter section */
+.product-catalog-filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
-.filter-section {
+.product-catalog-filter-section {
     flex: 1;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-    min-width: calc(33.33% - 40px); /* Default to 3 columns with spacing */
+    margin: 5px; /* Ensure some margin around each filter */
 }
 
-.filter-section:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.filter-section h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #333;
+.product-catalog-filter-section label {
+    display: block;
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
-/* Filter Content Styles */
-.filter-content {
-    margin: 0;
-    padding: 0;
-}
-
-/* Select Dropdowns and Input Boxes */
-.filter-section select,
-.filter-section input {
+.product-catalog-filter-section input[type="number"],
+.product-catalog-filter-section select {
     width: 100%;
     padding: 10px;
-    margin-top: 5px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-/* Price Range Styles */
-.price-range {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.price-range label {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
-    color: #555;
-}
-
-.price-range input {
-    flex: 1;
-    min-width: 100px;
-    width: auto;
-    margin: 0;
-    font-size: 16px;
-}
-
-/* Filter Background Colors */
-.filter-availability {
-    background-color: #e0f7fa;
-}
-
-.filter-price {
-    background-color: #fff3e0;
-}
-
-.filter-sort {
-    background-color: #f1f8e9;
-}
-
-/* Catalog Products */
-.catalog-products {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust minmax value for better scaling */
-    gap: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.catalog-products p {
-    font-size: 16px;
-    color: #333;
-    text-align: center;
-    width: 100%;
-}
-
-/* Product Card */
-.product-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 5px;
+}
+
+.product-catalog-price-range {
+    display: flex;
+    gap: 10px;
+}
+
+.product-catalog-price-range input[type="number"] {
+    flex: 1;
+}
+
+/* Product grid */
+.product-catalog-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid without minimum card width */
+    gap: 20px;
+}
+
+/* Product card */
+.product-catalog-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
     overflow: hidden;
+    transition: box-shadow 0.3s ease;
     background-color: #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%;
-    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box; /* Ensure padding and border are included in width/height calculations */
+    text-align: center; /* Center text inside the product card */
 }
 
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+/* Hover effect */
+.product-catalog-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.product-image {
+/* Image wrapper to center image with padding */
+.product-catalog-image-wrapper {
     width: 100%;
-    height: auto;
-    max-height: 200px;
-    object-fit: cover;
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
     margin-bottom: 10px;
 }
 
-.product-info {
+.product-catalog-image {
+    max-width: 80%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Product info */
+.product-catalog-info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    padding: 15px;
+    justify-content: center;
+    padding: 10px;
+    text-align: center; /* Center text for smaller devices */
 }
 
-.product-name {
-    font-size: 16px;
-    font-weight: normal;
-    margin: 5px 0;
+.product-catalog-name {
+    font-size: 1.2rem;
     color: #333;
+    margin: 10px 0;
 }
 
-.product-price {
-    font-size: 18px;
-    font-weight: bold;
-    color: #f00;
-    margin: 5px 0;
+.product-catalog-price {
+    font-size: 1rem;
+    color: #888;
 }
 
-/* Button Styles */
-button {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Primary Button */
-.btn-primary {
-    background-color: #007bff;
-    color: #fff;
-    border: 1px solid #007bff;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Secondary Button */
-.btn-secondary {
-    background-color: #6c757d;
-    color: #fff;
-    border: 1px solid #6c757d;
-}
-
-.btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #5a6268;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Danger Button */
-.btn-danger {
-    background-color: #dc3545;
-    color: #fff;
-    border: 1px solid #dc3545;
-}
-
-.btn-danger:hover {
-    background-color: #c82333;
-    border-color: #c82333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Form Button */
-.btn-form {
-    background-color: #28a745;
-    color: #fff;
-    border: 1px solid #28a745;
-}
-
-.btn-form:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Disabled Button State */
-button:disabled {
-    background-color: #e9ecef;
-    color: #6c757d;
-    border: 1px solid #e9ecef;
-    cursor: not-allowed;
-    box-shadow: none;
-}
-
-/* Small Button */
-.btn-sm {
-    font-size: 14px;
-    padding: 8px 16px;
-}
-
-/* Large Button */
-.btn-lg {
-    font-size: 18px;
-    padding: 12px 24px;
-}
-
-/* Responsive Styles for Filters */
-@media (max-width: 1200px) {
-    .filter-section {
-        min-width: calc(50% - 40px); /* Adjust to 2 columns */
-    }
-}
-
-@media (max-width: 768px) {
-    .filter-section {
-        min-width: calc(100% - 40px); /* Single column for small screens */
-    }
-}
-
-/* Responsive Styles for Catalog Products */
-@media (max-width: 1200px) {
-    .catalog-container {
+/* Media queries for responsive design */
+@media (max-width: 1024px) {
+    .product-catalog-container {
         padding: 15px;
     }
 
-    .catalog-products {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjusted for better scaling */
+    .product-catalog-filters {
+        flex-direction: column;
+    }
+
+    .product-catalog-filter-section {
+        margin-bottom: 10px;
     }
 }
 
 @media (max-width: 768px) {
-    .product-card {
-        max-width: 100%;
+    .product-catalog-container {
+        padding: 10px;
     }
 
-    .product-image {
-        max-height: 150px;
+    .product-catalog-filters {
+        gap: 10px;
+    }
+
+    .product-catalog-info {
+        padding: 5px;
+    }
+
+    .product-catalog-name {
+        font-size: 1rem;
+    }
+
+    .product-catalog-price {
+        font-size: 0.9rem;
     }
 }
 
-@media (max-width: 576px) {
-    .product-name {
-        font-size: 14px;
+@media (max-width: 480px) {
+    .product-catalog-container h1 {
+        font-size: 1.5rem;
     }
 
-    .product-price {
-        font-size: 16px;
+    .product-catalog-filters {
+        flex-direction: column;
+        gap: 5px;
     }
 
-    .btn-sm {
-        font-size: 12px;
-        padding: 6px 12px;
+    .product-catalog-filter-section {
+        margin-bottom: 5px;
     }
 
-    .btn-lg {
-        font-size: 20px;
-        padding: 14px 28px;
+    .product-catalog-info {
+        padding: 5px;
+    }
+
+    .product-catalog-name {
+        font-size: 0.9rem;
+    }
+
+    .product-catalog-price {
+        font-size: 0.8rem;
+    }
+
+    .product-catalog-card {
+        padding: 0;
+        width: 75%;
+        margin: 0;
     }
 }

@@ -45,10 +45,10 @@ const Catalog = ({ searchTerm = '' }) => {
     const handleSortOptionChange = (e) => setSortOption(e.target.value);
 
     return (
-        <div className="catalog-container">
+        <div className="product-catalog-container">
             <h1>Products</h1>
-            <div className="catalog-filters">
-                <div className="filter-section">
+            <div className="product-catalog-filters">
+                <div className="product-catalog-filter-section">
                     <label htmlFor="availability">Availability:</label>
                     <select id="availability" value={availability} onChange={handleAvailabilityChange}>
                         <option value="">Select Stock Status</option>
@@ -57,9 +57,9 @@ const Catalog = ({ searchTerm = '' }) => {
                     </select>
                 </div>
 
-                <div className="filter-section">
+                <div className="product-catalog-filter-section">
                     <label htmlFor="price-range">Price Range:</label>
-                    <div className="price-range">
+                    <div className="product-catalog-price-range">
                         <input
                             type="number"
                             id="price-from"
@@ -79,7 +79,7 @@ const Catalog = ({ searchTerm = '' }) => {
                     </div>
                 </div>
 
-                <div className="filter-section">
+                <div className="product-catalog-filter-section">
                     <label htmlFor="sort-option">Sort By:</label>
                     <select id="sort-option" value={sortOption} onChange={handleSortOptionChange}>
                         <option value="">Select Sorting Option</option>
@@ -95,15 +95,15 @@ const Catalog = ({ searchTerm = '' }) => {
                 </div>
             </div>
 
-            <div className="catalog-products">
+            <div className="product-catalog-products">
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map((product) => (
-                        <div key={product.id} className="product-card">
+                        <div key={product.id} className="product-catalog-card">
                             <Link to='/product-info' style={{ textDecoration: 'none' }}>
-                                <img src={product.image} alt={product.name} className="product-image" />
-                                <div className="product-info">
-                                    <h1 className="product-name"><b>{product.name}</b></h1>
-                                    <h5 className="product-price">₹{product.price}</h5>
+                                <img src={product.image} alt={product.name} className="product-catalog-image" />
+                                <div className="product-catalog-info">
+                                    <h3 className="product-catalog-name"><b>{product.name}</b></h3>
+                                    <h5 className="product-catalog-price">₹{product.price}</h5>
                                 </div>
                             </Link>
                         </div>
