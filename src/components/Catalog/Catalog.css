@@ -84,6 +84,7 @@
 }
 
 .product-catalog-image {
+    padding-top: 10px;
     max-width: 80%;
     height: auto; /* Maintain aspect ratio */
     border-radius: 5px; /* Rounded corners */

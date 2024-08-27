@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Catalog.css'; // Import your custom styles
-import productImage from '../../assets/Product-Image-2.jpg';
+
+const productImage2Url = "https://aadivasicommunityimages.s3.ap-south-1.amazonaws.com/Product-Image-2.jpg";
+
 
 const Catalog = ({ searchTerm = '' }) => {
     const [availability, setAvailability] = useState('');
@@ -13,7 +15,7 @@ const Catalog = ({ searchTerm = '' }) => {
             name: 'Natural Adivasi Hair Oil',
             oldPrice: '2500',
             price: '1500',
-            image: productImage, // Use imported image
+            image: productImage2Url, // Use imported image
             variants: ['500ml', '1000ml'],
             availability: true // Indicates the product is in stock
         },

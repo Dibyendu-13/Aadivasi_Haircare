@@ -1,104 +1,129 @@
-/* General Slider Container Styling */
 .slider-container {
-    position: relative; /* Allows for positioning of arrows */
-    width: 60%; /* Reduce width from 80% to 60% */
-    max-width: 900px; /* Optional: Set a maximum width for larger screens */
-    margin: 0 auto; /* Center the slider container */
-    padding: 0; /* Remove padding */
+    position: relative;
+    width: 100%;
+    max-width: 100vw; /* Ensure the slider does not exceed the viewport width */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    overflow: hidden;
 }
 
-/* Center content inside slides */
-.slider-container .slick-slide {
-    display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
-    height: 70vh; /* Reduce height from 100vh to 70vh */
-}
-
-/* Image and Video styling */
-.slider-container img,
-.slider-container video {
-    max-width: 100%; /* Ensure the image/video fits within the container */
-    max-height: 100%; /* Adjust height to fit within the container */
-    width: auto; /* Maintain aspect ratio */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Ensure the image/video is fully visible within the container */
-    border-radius: 8px; /* Optional: for rounded corners */
-}
-
-/* Custom arrow styles */
-.slick-arrow {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    border: none;
-    color: white; /* Arrow color */
-    cursor: pointer;
-    font-size: 20px; /* Smaller arrow size */
-    line-height: 1;
-    position: absolute;
-    z-index: 1000;
-    border-radius: 50%;
-    width: 30px; /* Adjust size */
-    height: 30px; /* Adjust size */
+.slider-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for background color and arrow color */
+    width: 100%;
+    height: 100%;
+    padding: 0 10px; /* Reduce padding to fit smaller content */
 }
 
-/* Hide default arrows */
-.slick-prev:before,
-.slick-next:before {
-    display: none; /* Hide default arrow icons */
+.slider-image,
+.slider-video {
+    width: 80%; /* Set width to a smaller percentage */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 600px; /* Set a maximum width */
+    max-height: 400px; /* Set a maximum height */
+    object-fit: cover; /* Ensure content covers the container without distortion */
 }
 
-/* Position arrows */
-.slick-prev {
-    left: 10px; /* Position left arrow closer to the image */
+.slider-video {
+    max-width: 100%; /* Restrict the video width to prevent overflow */
+}
+
+.slider-control {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1000;
+    font-size: 1.5rem; /* Adjusted for smaller controls */
+    border-radius: 50%; /* Rounded control buttons */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.slider-control:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+}
+
+/* Default position for controls */
+.prev,
+.next {
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); /* Vertically center the controls */
 }
 
-.slick-next {
-    right: 10px; /* Position right arrow closer to the image */
-    top: 50%;
-    transform: translateY(-50%);
+.prev {
+    left: 20%;
 }
 
-/* No hover effect on arrows */
-.slick-arrow:hover,
-.slick-arrow:focus,
-.slick-arrow:active {
-    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker background on hover */
-    color: white; /* Maintain arrow color */
-    outline: none; /* Remove default outline */
+.next {
+    right: 20%;
 }
 
-/* Responsive adjustments */
+/* Controls at the bottom on smaller devices */
 @media (max-width: 768px) {
-    .slider-container {
-        width: 90%; /* Adjust width for smaller screens */
+    .slider-control {
+        font-size: 1.2rem; /* Smaller controls on smaller screens */
+        padding: 6px;
     }
 
-    .slick-arrow {
-        font-size: 18px; /* Slightly smaller arrow size for mobile */
-        width: 25px;
-        height: 25px;
+    .slider-content {
+        padding: 0 5px; /* Further reduce padding on smaller screens */
+    }
+
+    .slider-image,
+    .slider-video {
+        width: 90%; /* Increase width for better visibility on tablets */
+        max-width: 500px; /* Adjust maximum width */
+        max-height: 300px; /* Adjust maximum height */
+    }
+
+    .prev,
+    .next {
+        top: 50%; /* Ensure controls are vertically centered */
+        transform: translateY(-50%); /* Vertically center the controls */
+        bottom: auto; /* Remove bottom positioning */
+    }
+
+    .prev {
+        left: calc(10% - 30px); /* Position controls just outside the image's left edge */
+    }
+
+    .next {
+        right: calc(10% - 30px); /* Position controls just outside the image's right edge */
     }
 }
 
 @media (max-width: 480px) {
-    .slider-container {
-        width: 100%; /* Ensure full width on very small screens */
-        padding: 0; /* Remove padding to prevent extra space */
+    .slider-control {
+        font-size: 1rem; /* Further reduce controls size on very small screens */
+        padding: 4px;
     }
 
-    .slider-container .slick-slide {
-        height: auto; /* Remove fixed height to adjust to content */
-        margin: 0; /* Remove margin to prevent extra space */
+    .prev,
+    .next {
+        top: 50%; /* Ensure controls are vertically centered */
+        transform: translateY(-50%); /* Vertically center the controls */
+        bottom: auto; /* Remove bottom positioning */
     }
 
-    .slider-container img,
-    .slider-container video {
-        max-height: 60vh; /* Adjust max height for very small screens */
+    .prev {
+        left: 5%; /* Position controls just outside the image's left edge */
+    }
+
+    .next {
+        right: 5%; /* Position controls just outside the image's right edge */
+    }
+
+    .slider-content {
+        padding: 0 5px; /* Further reduce padding on very small screens */
+    }
+
+    .slider-image,
+    .slider-video {
+        width: 95%; /* Increase width for better visibility on mobile screens */
+        max-width: 400px; /* Adjust maximum width */
+        max-height: 250px; /* Adjust maximum height */
     }
 }

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
-import productImage from '../../assets/Product-Image-1.jpg';
+
 import './CartComponent.css';
 import { FaTrash } from 'react-icons/fa';
 
@@ -43,6 +43,9 @@ const CartComponent = () => {
         navigate('/checkout');
     };
 
+    const productImage1Url = "https://aadivasicommunityimages.s3.ap-south-1.amazonaws.com/Product-Image-1.jpg";
+
+
     return (
         <div className="cart-component">
             <h2>Your Cart</h2>
@@ -62,7 +65,7 @@ const CartComponent = () => {
                             <tr key={`${item.id}-${item.selectedVariant}`} className="cart-component-item">
                                 <td className="cart-component-item-details">
                                     <img 
-                                        src={item.image || productImage} 
+                                        src={productImage1Url} 
                                         alt={item.name || 'Product Image'} 
                                         className="cart-component-item-image" 
                                     />

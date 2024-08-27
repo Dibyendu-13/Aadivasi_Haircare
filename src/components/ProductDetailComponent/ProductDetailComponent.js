@@ -3,7 +3,6 @@ import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import './ProductDetailComponent.css';
-import productImage from '../../assets/Product-Image-1.jpg';
 
 const ProductDetailComponent = ({ product }) => {
     const [quantity, setQuantity] = useState(1);
@@ -16,7 +15,6 @@ const ProductDetailComponent = ({ product }) => {
 
     // Determine index based on selectedVariant
     const variantIndex = product.variants.indexOf(selectedVariant);
-   
 
     const incrementQuantity = () => setQuantity(prevQuantity => prevQuantity + 1);
     const decrementQuantity = () => {
@@ -29,26 +27,29 @@ const ProductDetailComponent = ({ product }) => {
 
     const handleAddToCart = () => {
         addToCart({ ...product, quantity, selectedVariant });
-
         toast.success("Item Added To Cart Successfully"); // Use toast directly
- 
     };
 
     // Ensure variantIndex is within bounds of the arrays
     const itemPrice = variantIndex !== -1 ? product.price[variantIndex] : 0;
     const itemOldPrice = variantIndex !== -1 ? product.oldPrice[variantIndex] : 0;
-  
+
+    // Use S3 URL for the product image
+    const productImage1Url = "https://aadivasicommunityimages.s3.ap-south-1.amazonaws.com/Product-Image-1.jpg";
 
     return (
         <div className="product-detail">
             <div className="product-image">
-                <img src={product.image || productImage} alt={product.name} />
+                <img
+                    src={productImage1Url}
+                    alt={product.name}
+                />
             </div>
             <div className="product-info">
                 <h1 className="product-name"><b>{product.name}</b></h1>
                 <p className="product-price">
                     {itemOldPrice && (
-                        <span className="price-old">₹{product.oldPrice[variantIndex]}</span>
+                        <span className="price-old">₹{itemOldPrice}</span>
                     )}
                     <span className="price-new">₹{itemPrice}</span>
                 </p>
@@ -98,7 +99,6 @@ const ProductDetailComponent = ({ product }) => {
                 </div>
                 <div className="product-actions">
                     <Link
-                      
                         className="btn add-to-cart no-underline"
                         onClick={handleAddToCart}
                     >
@@ -112,13 +112,14 @@ const ProductDetailComponent = ({ product }) => {
                         Buy Now
                     </Link>
 
-                    {product.viewDetails && ( <Link
-                        to={`/product-info/`} // Adjust this path as needed
-                       style={{textDecoration:'none',color:'black'}}
-                    >
-                       View Full Details  {'>'}{'>'}
-                    </Link>)}
-                   
+                    {product.viewDetails && (
+                        <Link
+                            to={`/product-info/`} // Adjust this path as needed
+                            style={{ textDecoration: 'none', color: 'black' }}
+                        >
+                            View Full Details {'>'}{'>'}
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>

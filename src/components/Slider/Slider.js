@@ -1,104 +1,53 @@
-import React, { useRef } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css'; // Import slick carousel CSS
-import 'slick-carousel/slick/slick-theme.css'; // Import slick carousel theme CSS
-import './Slider.css'; // Custom styles for the slider
+import React, { useState } from 'react';
+import './Slider.css'; // Optional: for custom styling
 
-// Import local images and video
-import image1 from '../../assets/Hairoil-1.jpg';
-import image2 from '../../assets/Hairoil-2.jpg';
-import image3 from '../../assets/Hairoil-3.jpg';
-import video1 from '../../assets/Aadivasi_Community_Latest_Video.mp4';
+const Slider = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-// Array of images and video, with video first
-const media = [
-    { type: 'video', src: video1 },
-    { type: 'image', src: image1 },
-    { type: 'image', src: image2 },
-    { type: 'image', src: image3 }
-];
+    // Define the video URL
+    const videoUrl = 'https://res.cloudinary.com/dmmrbxddi/video/upload/v1724784070/Aadivasi_Community_Latest_Video_bq6s9d.mp4';
 
-// Custom arrow components
-const PrevArrow = (props) => (
-    <button className="slick-arrow slick-prev" {...props}>
-        &#10094; {/* Left arrow symbol */}
-    </button>
-);
+    // Define image URLs from AWS S3
+    const imageUrls = [
+        'https://aadivasicommunityimages.s3.ap-south-1.amazonaws.com/Hairoil-1.jpg',
+        'https://aadivasicommunityimages.s3.ap-south-1.amazonaws.com/Hairoil-2.jpg',
+        'https://aadivasicommunityimages.s3.ap-south-1.amazonaws.com/Hairoil-3.jpg',
+        'https://aadivasicommunityimages.s3.ap-south-1.amazonaws.com/Hairoil-4.jpg',
+        'https://aadivasicommunityimages.s3.ap-south-1.amazonaws.com/Hairoil-5.jpg',
+        'https://aadivasicommunityimages.s3.ap-south-1.amazonaws.com/Hairoil-6.jpg',
+        'https://aadivasicommunityimages.s3.ap-south-1.amazonaws.com/Hairoil-7.jpg',
+        'https://aadivasicommunityimages.s3.ap-south-1.amazonaws.com/Hairoil-8.jpg',
+    ];
 
-const NextArrow = (props) => (
-    <button className="slick-arrow slick-next" {...props}>
-        &#10095; {/* Right arrow symbol */}
-    </button>
-);
-
-const SliderComponent = () => {
-    const sliderRef = useRef(null); // Reference to the Slider component
-    const videoRefs = useRef([]); // Array to hold references to video elements
-
-    // Slider settings with autoplay and custom arrows
-    const settings = {
-        dots: false, // Disable dots
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true, // Enable autoplay
-        autoplaySpeed: 3000, // Interval between slides (in milliseconds)
-        prevArrow: <PrevArrow />, // Use custom PrevArrow component
-        nextArrow: <NextArrow />, // Use custom NextArrow component
-        afterChange: (current) => {
-            // Pause video when changing slides
-            videoRefs.current.forEach((video, index) => {
-                if (video && index !== current) {
-                    video.pause();
-                    video.muted = true; // Ensure videos are muted when not active
-                }
-            });
-        }
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % (imageUrls.length + 1));
     };
 
-    const handleMouseEnter = (index) => {
-        const video = videoRefs.current[index];
-        if (video) {
-            video.play(); // Play the video when hovered
-            video.muted = false; // Unmute the video when hovered
-        }
-    };
-
-    const handleMouseLeave = (index) => {
-        const video = videoRefs.current[index];
-        if (video) {
-            video.pause(); // Pause the video when not hovered
-            video.muted = true; // Mute the video when not hovered
-        }
+    const handlePrevious = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + imageUrls.length + 1) % (imageUrls.length + 1));
     };
 
     return (
         <div className="slider-container">
-            <Slider {...settings} ref={sliderRef}>
-                {media.map((item, index) => (
-                    <div key={index}>
-                        {item.type === 'image' ? (
-                            <img src={item.src} alt={`Slide ${index + 1}`} className="slider-media" />
-                        ) : (
-                            <div className="video-container">
-                                <video
-                                    src={item.src}
-                                    controls
-                                    width="100%"
-                                    height="auto"
-                                    ref={(el) => (videoRefs.current[index] = el)}
-                                    onMouseEnter={() => handleMouseEnter(index)}
-                                    onMouseLeave={() => handleMouseLeave(index)}
-                                />
-                               
-                            </div>
-                        )}
+            <div className="slider-content">
+                {currentIndex === 0 ? (
+                    <div className="video-container">
+                        <video
+                            src={videoUrl}
+                            width="600"  // Set the desired width
+                            height="400" // Set the desired height
+                            controls
+                            autoPlay
+                        />
                     </div>
-                ))}
-            </Slider>
+                ) : (
+                    <img src={imageUrls[currentIndex - 1]} alt="slider" className="slider-image" />
+                )}
+                <button className="slider-control prev" onClick={handlePrevious}>❮</button>
+                <button className="slider-control next" onClick={handleNext}>❯</button>
+            </div>
         </div>
     );
 };
 
-export default SliderComponent;
+export default Slider;
