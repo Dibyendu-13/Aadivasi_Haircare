@@ -14,6 +14,7 @@ import Cart from './components/Cart/Cart';
 import PromoBanner from './components/PromoBanner/PromoBanner';
 import ThankYouPage from './components/ThankYouPage/ThankYouPage';
 import { ToastContainer } from 'react-toastify';
+import image from "./assets/hairoil_icon.png"
 
 function App() {
     const [searchQuery, setSearchQuery] = useState(''); // State to hold the search query
@@ -28,7 +29,9 @@ function App() {
                         <div className="header-search">
                             <Search setSearchQuery={setSearchQuery} />
                         </div>
-                        <h1 className="header-title">Adivasi Haircare</h1>
+                        <h1 className="header-title">Adivasi Hair Oil
+                        </h1>
+                        <image src={image}/>
                         <div className="header-cart">
                             <Cart />
                         </div>

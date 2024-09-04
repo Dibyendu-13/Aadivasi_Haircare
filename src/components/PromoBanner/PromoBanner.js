@@ -4,8 +4,10 @@ import './PromoBanner.css';
 const PromoBanner = () => {
     return (
         <div className="promo-banner">
-            100% RESULTS WITH FREE SHIPPING
-        </div>
+           50 % Discount till midnight
+
+
+                    </div>
     );
 };
 

@@ -43,7 +43,7 @@ const CartComponent = () => {
         navigate('/checkout');
     };
 
-    const productImage1Url = "https://aadivasicommunityimages.s3.ap-south-1.amazonaws.com/Product-Image-1.jpg";
+const productImage1Url = "https://aadivasicommunityimages.s3.ap-south-1.amazonaws.com/Product-Image-1.jpg";
 
 
     return (
