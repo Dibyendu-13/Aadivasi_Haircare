@@ -10,7 +10,8 @@ const ProductInfoComponent = () => {
         price: ['1500','2500'],
         variants: ['500ml', '1000ml'],
         quantity: 1,
-        viewDetails:false
+        description:"Adivasi Hair Oil is a traditional blend of natural herbs and oils, handcrafted since 1958, designed to nourish and protect all hair types. With ingredients like Bhringraj, Amla, Brahmi, and Coconut Oil, this hair oil promotes hair growth, reduces hair fall and dandruff, adds shine, and prevents premature greying. Perfect for luxurious, healthy hair.",
+        viewDetails:true
     };
 
     return (
