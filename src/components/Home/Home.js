@@ -5,6 +5,8 @@ import ProductDetailComponent from '../ProductDetailComponent/ProductDetailCompo
 import AdivasiCommunityImage from '../AdivasiCommunityImage/AdivasiCommunityImage'; // Import the new component
 import EmailSubscription from '../EmailSubscription/EmailSubscription'; // Import the email subscription component
 import './Home.css'; // Import your custom styles
+import VideoContainer from '../VideoContainer/VideoContainer';
+import ContactPage from '../ContactPage/ContactPage';
 
 const Home = () => {
     // Sample product data
@@ -30,8 +32,9 @@ const Home = () => {
             </div>
             {/* Include the new AdivasiCommunityImage component */}
             <AdivasiCommunityImage />
-            {/* Include the EmailSubscription component
-            <EmailSubscription /> */}
+           <VideoContainer/>
+           <ContactPage/>
+            
         </div>
     );
 };

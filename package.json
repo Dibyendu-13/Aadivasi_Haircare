@@ -20,6 +20,7 @@
     "react-video-js-player": "^1.1.1",
     "semver": "^7.6.3",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.13",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

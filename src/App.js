@@ -29,8 +29,9 @@ function App() {
                         <div className="header-search">
                             <Search setSearchQuery={setSearchQuery} />
                         </div>
-                        <h1 className="header-title">Adivasi Hair Oil
+                        <h1 className="header-title">Adivasi Hair Oil 🧴
                         </h1>
+                        
                         <image src={image}/>
                         <div className="header-cart">
                             <Cart />

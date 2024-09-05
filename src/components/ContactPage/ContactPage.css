@@ -1,0 +1,89 @@
+/* Styling for the Contact Page */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .text {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    max-width: 80%;
+  }
+  
+  .whatsapp-link {
+    display: flex;
+    align-items: center;
+    background-color: #25D366;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .whatsapp-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+  }
+  
+  /* Media Queries for Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      height: 40vh;
+    }
+  
+    .heading {
+      font-size: 1.6rem;
+    }
+  
+    .text {
+      font-size: 1rem;
+      max-width: 90%;
+    }
+  
+    .whatsapp-link {
+      font-size: 1rem;
+      padding: 8px 16px;
+    }
+  
+    .whatsapp-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .heading {
+      font-size: 1.4rem;
+    }
+  
+    .text {
+      font-size: 0.9rem;
+      max-width: 95%;
+    }
+  
+    .whatsapp-link {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+    }
+  
+    .whatsapp-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
